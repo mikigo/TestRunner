@@ -17,7 +17,7 @@
     },
     "workbench": {
       "label_workbench": "工作台",
-      "text_hello": "hello, {username}",
+      "text_hello": "Hi, {username}",
       "text_welcome": "今天又是元气满满的一天!",
       "label_number_of_items": "项目数",
       "label_upcoming": "待办",

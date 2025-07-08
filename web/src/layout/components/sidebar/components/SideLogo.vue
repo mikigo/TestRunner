@@ -1,7 +1,7 @@
 <template>
   <router-link h-60 f-c-c to="/">
-<!--    <icon-custom-logo text-36 color-primary></icon-custom-logo>-->
     <img src="/logo.png" alt="Logo" class="w-36 h-36" />
+    &nbsp;
     <h2
       v-show="!appStore.collapsed"
       ml-2

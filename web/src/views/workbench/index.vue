@@ -12,9 +12,9 @@
               <p mt-5 text-14 op-60>{{ $t('views.workbench.text_welcome') }}</p>
             </div>
           </div>
-          <n-space :size="12" :wrap="false">
-            <n-statistic v-for="item in statisticData" :key="item.id" v-bind="item"></n-statistic>
-          </n-space>
+<!--          <n-space :size="12" :wrap="false">-->
+<!--            <n-statistic v-for="item in statisticData" :key="item.id" v-bind="item"></n-statistic>-->
+<!--          </n-space>-->
         </div>
       </n-card>
 
