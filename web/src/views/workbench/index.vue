@@ -18,29 +18,29 @@
         </div>
       </n-card>
 
-      <n-card
-        :title="$t('views.workbench.label_project')"
-        size="small"
-        :segmented="true"
-        mt-15
-        rounded-10
-      >
-        <template #header-extra>
-          <n-button text type="primary">{{ $t('views.workbench.label_more') }}</n-button>
-        </template>
-        <div flex flex-wrap justify-between>
-          <n-card
-            v-for="i in 9"
-            :key="i"
-            class="mb-10 mt-10 w-300 cursor-pointer"
-            hover:card-shadow
-            title="MarkRunner-Platfrom"
-            size="small"
-          >
-            <p op-60>{{ dummyText }}</p>
-          </n-card>
-        </div>
-      </n-card>
+<!--      <n-card-->
+<!--        :title="$t('views.workbench.label_project')"-->
+<!--        size="small"-->
+<!--        :segmented="true"-->
+<!--        mt-15-->
+<!--        rounded-10-->
+<!--      >-->
+<!--        <template #header-extra>-->
+<!--          <n-button text type="primary">{{ $t('views.workbench.label_more') }}</n-button>-->
+<!--        </template>-->
+<!--        <div flex flex-wrap justify-between>-->
+<!--          <n-card-->
+<!--            v-for="i in 9"-->
+<!--            :key="i"-->
+<!--            class="mb-10 mt-10 w-300 cursor-pointer"-->
+<!--            hover:card-shadow-->
+<!--            title="MarkRunner-Platfrom"-->
+<!--            size="small"-->
+<!--          >-->
+<!--            <p op-60>{{ dummyText }}</p>-->
+<!--          </n-card>-->
+<!--        </div>-->
+<!--      </n-card>-->
     </div>
   </AppPage>
 </template>
