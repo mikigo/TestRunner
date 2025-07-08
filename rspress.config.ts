@@ -9,8 +9,8 @@ export default defineConfig({
     base: '/MarkRunner-Platfrom/',
     title: 'MarkRunner-Platfrom',
     description: 'MarkRunner-Platfrom',
-    // icon: '/favicon.ico',
-    // logo:  '/logo.png',
+    icon: '/logo.png',
+    logo:  '/logo.png',
     logoText: 'MarkRunner-Platfrom',
     themeConfig: {
         enableContentAnimation: true,
@@ -43,7 +43,7 @@ export default defineConfig({
         ],
 
         footer: {
-            message: `版权所有 © 2023-${new Date().getFullYear()} mikigo`,
+            message: `版权所有 © 2025-${new Date().getFullYear()} mikigo`,
         },
         hideNavbar: 'auto',
     },
