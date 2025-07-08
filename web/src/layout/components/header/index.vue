@@ -5,7 +5,7 @@
   </div>
   <div ml-auto flex items-center>
 <!--    <Languages />-->
-<!--    <ThemeMode />-->
+    <ThemeMode />
 <!--    <GithubSite />-->
     <FullScreen />
     <UserAvatar />
