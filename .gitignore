@@ -6,7 +6,7 @@ doc_build/
 node_modules/
 # C extensions
 *.so
-
+migrations/
 # Distribution / packaging
 .Python
 build/

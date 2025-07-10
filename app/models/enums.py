@@ -2,6 +2,7 @@ from enum import Enum
 
 
 class StrEnum(str, Enum):
+    # 代替 from enum import StrEnum，否则Python版本低于3.11会报错
     def __str__(self):
         return self.value
 

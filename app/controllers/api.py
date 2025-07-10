@@ -1,9 +1,12 @@
+import logging
+
 from fastapi.routing import APIRoute
 
 from app.core.crud import CRUDBase
-from app.log import logger
 from app.models.admin import Api
 from app.schemas.apis import ApiCreate, ApiUpdate
+
+logger = logging.getLogger(__name__)
 
 
 class ApiController(CRUDBase[Api, ApiCreate, ApiUpdate]):
