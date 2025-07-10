@@ -1,5 +1,5 @@
 <template>
   <AppPage>
-    <h1>MarkRunner</h1>
+    <h1>TestRunner</h1>
   </AppPage>
 </template>

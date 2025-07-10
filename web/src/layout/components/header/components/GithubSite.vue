@@ -6,6 +6,6 @@
 
 <script setup>
 function handleLinkClick() {
-  window.open('https://github.com/mikigo/MarkRunner-Platfrom')
+  window.open('https://github.com/mikigo/TestRunner-Platfrom')
 }
 </script>

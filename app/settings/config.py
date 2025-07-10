@@ -6,8 +6,8 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     VERSION: str = "0.1.0"
-    APP_TITLE: str = "MarkRunner-Platfrom"
-    PROJECT_NAME: str = "MarkRunner-Platfrom"
+    APP_TITLE: str = "TestRunner-Platfrom"
+    PROJECT_NAME: str = "TestRunner-Platfrom"
     APP_DESCRIPTION: str = "Description"
 
     CORS_ORIGINS: typing.List = ["*"]

@@ -34,7 +34,7 @@
 <!--            :key="i"-->
 <!--            class="mb-10 mt-10 w-300 cursor-pointer"-->
 <!--            hover:card-shadow-->
-<!--            title="MarkRunner-Platfrom"-->
+<!--            title="TestRunner-Platfrom"-->
 <!--            size="small"-->
 <!--          >-->
 <!--            <p op-60>{{ dummyText }}</p>-->

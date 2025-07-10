@@ -6,12 +6,12 @@ export default defineConfig({
     globalStyles: path.join(__dirname, 'theme/var.css'),
 
     root: 'docs',
-    base: '/MarkRunner-Platfrom/',
-    title: 'MarkRunner-Platfrom',
-    description: 'MarkRunner-Platfrom',
+    base: '/TestRunner-Platfrom/',
+    title: 'TestRunner-Platfrom',
+    description: 'TestRunner-Platfrom',
     icon: '/logo.png',
     logo:  '/logo.png',
-    logoText: 'MarkRunner-Platfrom',
+    logoText: 'TestRunner-Platfrom',
     themeConfig: {
         enableContentAnimation: true,
         enableAppearanceAnimation: true,
@@ -38,7 +38,7 @@ export default defineConfig({
             {
                 icon: 'github',
                 mode: 'link',
-                content: 'https://github.com/mikigo/MarkRunner-Platfrom/',
+                content: 'https://github.com/mikigo/TestRunner-Platfrom/',
             }
         ],
 
