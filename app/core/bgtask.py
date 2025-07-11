@@ -1,4 +1,4 @@
-from starlette.background import BackgroundTasks
+from fastapi import BackgroundTasks
 
 from .ctx import CTX_BG_TASKS
 

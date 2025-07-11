@@ -2,7 +2,8 @@ from fastapi import APIRouter, Query
 
 from app.controllers.dept import dept_controller
 from app.schemas import Success
-from app.schemas.depts import *
+from app.schemas.depts import DeptCreate
+from app.schemas.depts import DeptUpdate
 
 router = APIRouter()
 

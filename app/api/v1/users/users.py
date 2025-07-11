@@ -1,14 +1,11 @@
-import logging
-
 from fastapi import APIRouter, Body, Query
 from tortoise.expressions import Q
 
 from app.controllers.dept import dept_controller
 from app.controllers.user import user_controller
 from app.schemas.base import Fail, Success, SuccessExtra
-from app.schemas.users import *
-
-logger = logging.getLogger(__name__)
+from app.schemas.users import UserCreate
+from app.schemas.users import UserUpdate
 
 router = APIRouter()
 
