@@ -173,6 +173,9 @@ class HttpAuditLogMiddleware(BaseHTTPMiddleware):
         return response
 
     async def dispatch(self, request: Request, call_next: RequestResponseEndpoint) -> Response:
+        if request.url.path.startswith("/static/"):
+            return await call_next(request)
+
         start_time: datetime = datetime.now()
         await self.before_request(request)
         response = await call_next(request)

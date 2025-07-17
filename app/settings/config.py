@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     VERSION: str = "0.1.0"
     APP_TITLE: str = "TestRunner-Platfrom"
     PROJECT_NAME: str = "TestRunner-Platfrom"
-    APP_DESCRIPTION: str = "### Join Happy Life!"
+    APP_DESCRIPTION: str = "### Enjoy Happy Life! - mikigo"
 
     CORS_ORIGINS: typing.List = ["*"]
     CORS_ALLOW_CREDENTIALS: bool = True

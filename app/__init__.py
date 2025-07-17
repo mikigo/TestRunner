@@ -1,7 +1,9 @@
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI
 from tortoise import Tortoise
+import fastapi_cdn_host
 
 from app.core.exceptions import SettingNotFound
 from app.core.init_app import (
@@ -24,18 +26,18 @@ async def lifespan(app: FastAPI):
     await Tortoise.close_connections()
 
 
-def create_app() -> FastAPI:
-    app = FastAPI(
-        title=settings.APP_TITLE,
-        description=settings.APP_DESCRIPTION,
-        version=settings.VERSION,
-        openapi_url="/openapi.json",
-        middleware=make_middlewares(),
-        lifespan=lifespan,
-    )
-    register_exceptions(app)
-    register_routers(app, prefix="/api")
-    return app
 
+app = FastAPI(
+    title=settings.APP_TITLE,
+    description=settings.APP_DESCRIPTION,
+    version=settings.VERSION,
+    middleware=make_middlewares(),
+    lifespan=lifespan,
+    redoc_url=None,
+)
 
-app = create_app()
+fastapi_cdn_host.patch_docs(app, Path(__file__).parent.joinpath('static'))
+
+register_exceptions(app)
+register_routers(app, prefix="/api")
+
