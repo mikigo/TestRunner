@@ -32,6 +32,14 @@ jobs:
         run: pnpm run build
         working-directory: ./web
 
+      - name: List directory structure
+        run: |    
+          pwd
+          ls -la
+          ls -la web/dist
+          apt install tree -y
+          tree
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
