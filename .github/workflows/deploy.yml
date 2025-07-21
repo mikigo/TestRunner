@@ -18,12 +18,15 @@ jobs:
         with:
           node-version: 18
 
+      - name: Install pnpm
+        run: npm install -g pnpm
+
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install
         working-directory: ./web
 
       - name: Build
-        run: npm run build
+        run: pnpm run build
         working-directory: ./web
 
       - name: Deploy to GitHub Pages
