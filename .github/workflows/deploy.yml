@@ -32,6 +32,13 @@ jobs:
         run: pnpm run build
         working-directory: ./web
 
+      - name: cat dist
+        run: |
+          pwd
+          ls -la .
+          ls -la ./web/
+          ls -la ./web/dist
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
