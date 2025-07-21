@@ -1,71 +1,48 @@
-name: Deploy site to Pages
+name: Deploy to GitHub Pages
+
+permissions:
+  contents: write
 
 on:
   push:
-    branches: [main]
-
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
+    branches:
+      - main
 
 jobs:
-  # Build job
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./web
+
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Not needed if lastUpdated is not enabled
 
-      - name: Create symlink for pnpm-lock.yaml
-        run: |
-          ln -s web/pnpm-lock.yaml pnpm-lock.yaml
-
-      - uses: pnpm/action-setup@v3 # pnpm is optional but recommended, you can also use npm / yarn
-        with:
-          version: 8
-
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: pnpm
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Install dependencies
         run: pnpm install
+        working-directory: ./web
 
       - name: Build
-        run: |
-          pnpm run build
+        run: pnpm run build
+        working-directory: ./web
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
+      - name: List directory structure
+        run: |    
+          pwd
+          ls -la
+          ls -la web/dist
+          sudo apt-get update
+          sudo apt-get install -y tree
+          tree
 
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./web/dist
