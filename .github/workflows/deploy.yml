@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy
 
 permissions:
   contents: write
@@ -9,37 +9,36 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  # Build job
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Setup Node.js
+        with:
+          fetch-depth: 0 # Not needed if lastUpdated is not enabled
+      - uses: pnpm/action-setup@v3 # pnpm is optional but recommended, you can also use npm / yarn
+        with:
+          version: 8
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: pnpm
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
       - name: Install dependencies
         run: pnpm install
         working-directory: ./web
 
-      - name: Build
+      - name: Build with Rspress
         run: pnpm run build
         working-directory: ./web
 
-      - name: List directory structure
-        run: |    
-          pwd
-          ls -la
-          ls -la web/dist
-
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./web/dist
