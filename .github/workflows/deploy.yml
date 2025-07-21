@@ -28,6 +28,10 @@ jobs:
         with:
           fetch-depth: 0 # Not needed if lastUpdated is not enabled
 
+      - name: Create symlink for pnpm-lock.yaml
+        run: |
+          ln -s web/pnpm-lock.yaml pnpm-lock.yaml
+
       - uses: pnpm/action-setup@v3 # pnpm is optional but recommended, you can also use npm / yarn
         with:
           version: 8
