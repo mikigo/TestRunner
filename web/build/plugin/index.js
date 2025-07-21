@@ -15,7 +15,18 @@ import { configHtmlPlugin } from './html'
 import unplugin from './unplugin'
 
 export function createVitePlugins(viteEnv, isBuild) {
-  const plugins = [vue(), ...unplugin, configHtmlPlugin(viteEnv, isBuild), Unocss()]
+  const plugins = [
+    vue(),
+    ...unplugin,
+    configHtmlPlugin(viteEnv, isBuild),
+    Unocss({
+      content: {
+        pipeline: {
+          exclude: ['node_modules', 'dist'],
+        },
+      },
+    }),
+  ]
 
   if (viteEnv.VITE_USE_COMPRESS) {
     plugins.push(viteCompression({ algorithm: viteEnv.VITE_COMPRESS_TYPE || 'gzip' }))
