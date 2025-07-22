@@ -10,11 +10,11 @@ router = APIRouter()
 
 @router.get("/list", summary="查看API列表")
 async def list_api(
-    page: int = Query(1, description="页码"),
-    page_size: int = Query(10, description="每页数量"),
-    path: str = Query(None, description="API路径"),
-    summary: str = Query(None, description="API简介"),
-    tags: str = Query(None, description="API模块"),
+        page: int = Query(1, description="页码"),
+        page_size: int = Query(10, description="每页数量"),
+        path: str = Query(None, description="API路径"),
+        summary: str = Query(None, description="API简介"),
+        tags: str = Query(None, description="API模块"),
 ):
     q = Q()
     if path:
@@ -30,7 +30,7 @@ async def list_api(
 
 @router.get("/get", summary="查看Api")
 async def get_api(
-    id: int = Query(..., description="Api"),
+        id: int = Query(..., description="Api"),
 ):
     api_obj = await api_controller.get(id=id)
     data = await api_obj.to_dict()
@@ -39,7 +39,7 @@ async def get_api(
 
 @router.post("/create", summary="创建Api")
 async def create_api(
-    api_in: ApiCreate,
+        api_in: ApiCreate,
 ):
     await api_controller.create(obj_in=api_in)
     return Success(msg="Created Successfully")
@@ -47,7 +47,7 @@ async def create_api(
 
 @router.post("/update", summary="更新Api")
 async def update_api(
-    api_in: ApiUpdate,
+        api_in: ApiUpdate,
 ):
     await api_controller.update(id=api_in.id, obj_in=api_in)
     return Success(msg="Update Successfully")
@@ -55,7 +55,7 @@ async def update_api(
 
 @router.delete("/delete", summary="删除Api")
 async def delete_api(
-    api_id: int = Query(..., description="ApiID"),
+        api_id: int = Query(..., description="ApiID"),
 ):
     await api_controller.remove(id=api_id)
     return Success(msg="Deleted Success")

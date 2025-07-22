@@ -6,6 +6,6 @@
 - Vue3 + Vite + Naive UI
 
 后端：
-- FastAPI + Tortoise-ORM
+- FastAPI + Tortoise-ORM + SQLite
 
 文档地址：[https://mikigo.site/testrunner](https://mikigo.site/testrunner)
