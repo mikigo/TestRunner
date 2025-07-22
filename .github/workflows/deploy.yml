@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy
 
 permissions:
   contents: write
@@ -13,32 +13,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Setup Node.js
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
-
-      - name: Install pnpm
-        run: npm install -g pnpm
-
+          node-version: 20
+          cache: pnpm
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
       - name: Install dependencies
         run: pnpm install
         working-directory: ./web
-
       - name: Build
         run: pnpm run build
         working-directory: ./web
-
-      - name: cat dist
-        run: |
-          pwd
-          ls -la .
-          ls -la ./web/
-          ls -la ./web/dist
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:

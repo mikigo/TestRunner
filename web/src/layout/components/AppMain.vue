@@ -2,17 +2,18 @@
   <router-view v-slot="{ Component, route }">
     <KeepAlive :include="keepAliveRouteNames">
       <component
-        :is="Component"
-        v-if="appStore.reloadFlag"
-        :key="appStore.aliveKeys[route.name] || route.fullPath"
+          :is="Component"
+          v-if="appStore.reloadFlag"
+          :key="appStore.aliveKeys[route.name] || route.fullPath"
       />
     </KeepAlive>
   </router-view>
 </template>
 
 <script setup>
-import { useAppStore } from '@/store'
-import { useRouter } from 'vue-router'
+import {useAppStore} from '@/store'
+import {useRouter} from 'vue-router'
+
 const appStore = useAppStore()
 const router = useRouter()
 

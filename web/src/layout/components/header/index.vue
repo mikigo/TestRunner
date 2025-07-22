@@ -1,14 +1,14 @@
 <template>
   <div flex items-center>
-    <MenuCollapse />
-    <BreadCrumb ml-15 hidden sm:block />
+    <MenuCollapse/>
+    <BreadCrumb ml-15 hidden sm:block/>
   </div>
   <div ml-auto flex items-center>
-<!--    <Languages />-->
-    <ThemeMode />
-<!--    <GithubSite />-->
-    <FullScreen />
-    <UserAvatar />
+    <!--    <Languages />-->
+    <ThemeMode/>
+    <!--    <GithubSite />-->
+    <FullScreen/>
+    <UserAvatar/>
   </div>
 </template>
 

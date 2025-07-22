@@ -1,20 +1,20 @@
 <template>
   <n-menu
-    ref="menu"
-    class="side-menu"
-    accordion
-    :indent="18"
-    :collapsed-icon-size="22"
-    :collapsed-width="64"
-    :options="menuOptions"
-    :value="activeKey"
-    @update:value="handleMenuSelect"
+      ref="menu"
+      class="side-menu"
+      accordion
+      :indent="18"
+      :collapsed-icon-size="22"
+      :collapsed-width="64"
+      :options="menuOptions"
+      :value="activeKey"
+      @update:value="handleMenuSelect"
   />
 </template>
 
 <script setup>
-import { usePermissionStore, useAppStore } from '@/store'
-import { renderCustomIcon, renderIcon, isExternal } from '@/utils'
+import {usePermissionStore, useAppStore} from '@/store'
+import {renderCustomIcon, renderIcon, isExternal} from '@/utils'
 
 const router = useRouter()
 const curRoute = useRoute()
@@ -36,11 +36,11 @@ watch(curRoute, async () => {
 function resolvePath(basePath, path) {
   if (isExternal(path)) return path
   return (
-    '/' +
-    [basePath, path]
-      .filter((path) => !!path && path !== '/')
-      .map((path) => path.replace(/(^\/)|(\/$)/g, ''))
-      .join('/')
+      '/' +
+      [basePath, path]
+          .filter((path) => !!path && path !== '/')
+          .map((path) => path.replace(/(^\/)|(\/$)/g, ''))
+          .join('/')
   )
 }
 
@@ -54,8 +54,8 @@ function getMenuItem(route, basePath = '') {
   }
 
   const visibleChildren = route.children
-    ? route.children.filter((item) => item.name && !item.isHidden)
-    : []
+      ? route.children.filter((item) => item.name && !item.isHidden)
+      : []
 
   if (!visibleChildren.length) return menuItem
 
@@ -70,27 +70,27 @@ function getMenuItem(route, basePath = '') {
       icon: getIcon(singleRoute.meta),
     }
     const visibleItems = singleRoute.children
-      ? singleRoute.children.filter((item) => item.name && !item.isHidden)
-      : []
+        ? singleRoute.children.filter((item) => item.name && !item.isHidden)
+        : []
 
     if (visibleItems.length === 1) {
       menuItem = getMenuItem(visibleItems[0], menuItem.path)
     } else if (visibleItems.length > 1) {
       menuItem.children = visibleItems
-        .map((item) => getMenuItem(item, menuItem.path))
-        .sort((a, b) => a.order - b.order)
+          .map((item) => getMenuItem(item, menuItem.path))
+          .sort((a, b) => a.order - b.order)
     }
   } else {
     menuItem.children = visibleChildren
-      .map((item) => getMenuItem(item, menuItem.path))
-      .sort((a, b) => a.order - b.order)
+        .map((item) => getMenuItem(item, menuItem.path))
+        .sort((a, b) => a.order - b.order)
   }
   return menuItem
 }
 
 function getIcon(meta) {
-  if (meta?.customIcon) return renderCustomIcon(meta.customIcon, { size: 18 })
-  if (meta?.icon) return renderIcon(meta.icon, { size: 18 })
+  if (meta?.customIcon) return renderCustomIcon(meta.customIcon, {size: 18})
+  if (meta?.icon) return renderIcon(meta.icon, {size: 18})
   return null
 }
 
@@ -114,6 +114,7 @@ function handleMenuSelect(key, item) {
       left: 5px;
       right: 5px;
     }
+
     &.n-menu-item-content--selected,
     &:hover {
       &::before {

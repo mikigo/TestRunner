@@ -1,18 +1,18 @@
 <template>
   <n-dropdown
-    :show="show"
-    :options="options"
-    :x="x"
-    :y="y"
-    placement="bottom-start"
-    @clickoutside="handleHideDropdown"
-    @select="handleSelect"
+      :show="show"
+      :options="options"
+      :x="x"
+      :y="y"
+      placement="bottom-start"
+      @clickoutside="handleHideDropdown"
+      @select="handleSelect"
   />
 </template>
 
 <script setup>
-import { useTagsStore, useAppStore } from '@/store'
-import { renderIcon } from '@/utils'
+import {useTagsStore, useAppStore} from '@/store'
+import {renderIcon} from '@/utils'
 
 const props = defineProps({
   show: {
@@ -43,33 +43,33 @@ const options = computed(() => [
     label: '重新加载',
     key: 'reload',
     disabled: props.currentPath !== tagsStore.activeTag,
-    icon: renderIcon('mdi:refresh', { size: '14px' }),
+    icon: renderIcon('mdi:refresh', {size: '14px'}),
   },
   {
     label: '关闭',
     key: 'close',
     disabled: tagsStore.tags.length <= 1,
-    icon: renderIcon('mdi:close', { size: '14px' }),
+    icon: renderIcon('mdi:close', {size: '14px'}),
   },
   {
     label: '关闭其他',
     key: 'close-other',
     disabled: tagsStore.tags.length <= 1,
-    icon: renderIcon('mdi:arrow-expand-horizontal', { size: '14px' }),
+    icon: renderIcon('mdi:arrow-expand-horizontal', {size: '14px'}),
   },
   {
     label: '关闭左侧',
     key: 'close-left',
     disabled: tagsStore.tags.length <= 1 || props.currentPath === tagsStore.tags[0].path,
-    icon: renderIcon('mdi:arrow-expand-left', { size: '14px' }),
+    icon: renderIcon('mdi:arrow-expand-left', {size: '14px'}),
   },
   {
     label: '关闭右侧',
     key: 'close-right',
     disabled:
-      tagsStore.tags.length <= 1 ||
-      props.currentPath === tagsStore.tags[tagsStore.tags.length - 1].path,
-    icon: renderIcon('mdi:arrow-expand-right', { size: '14px' }),
+        tagsStore.tags.length <= 1 ||
+        props.currentPath === tagsStore.tags[tagsStore.tags.length - 1].path,
+    icon: renderIcon('mdi:arrow-expand-right', {size: '14px'}),
   },
 ])
 
