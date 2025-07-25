@@ -1,0 +1,1 @@
+import{_ as t}from"./AppPage-086a18a0.js";import{cs as o,o as s,b as r,w as a,d as _}from"./index-d1faa2f4.js";const c={};function f(l,e){const n=t;return s(),r(n,null,{default:a(()=>e[0]||(e[0]=[_("h1",null,"TestRunner",-1)])),_:1,__:[0]})}const i=o(c,[["render",f]]);export{i as default};
