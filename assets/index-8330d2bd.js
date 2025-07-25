@@ -1,1 +1,0 @@
-import{_ as t}from"./AppPage-086a18a0.js";import{cs as n,o as s,b as a,w as r,d as _}from"./index-d1faa2f4.js";const c={};function f(l,e){const o=t;return s(),a(o,null,{default:r(()=>e[0]||(e[0]=[_("h1",null,"一级菜单",-1)])),_:1,__:[0]})}const i=n(c,[["render",f]]);export{i as default};
