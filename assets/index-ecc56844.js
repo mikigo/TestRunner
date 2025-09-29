@@ -1,0 +1,1 @@
+import{_ as n}from"./AppPage-cad4d29a.js";import{ct as o,o as s,b as r,w as a,d as c}from"./index-65c853c8.js";const _={};function f(l,e){const t=n;return s(),r(t,null,{default:a(()=>[...e[0]||(e[0]=[c("h1",null,"TestRunner",-1)])]),_:1})}const i=o(_,[["render",f]]);export{i as default};
