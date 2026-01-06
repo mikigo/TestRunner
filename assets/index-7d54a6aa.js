@@ -1,0 +1,1 @@
+import{_ as t}from"./AppPage-8617562f.js";import{cA as o,o as s,b as r,w as a,d as c}from"./index-96e58cca.js";const _={};function f(l,e){const n=t;return s(),r(n,null,{default:a(()=>[...e[0]||(e[0]=[c("h1",null,"TestRunner",-1)])]),_:1})}const i=o(_,[["render",f]]);export{i as default};
